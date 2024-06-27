@@ -11,7 +11,6 @@ public class test {
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = { "/list" })
     public String productDto() {
-
         return "1231";
     }
 }
