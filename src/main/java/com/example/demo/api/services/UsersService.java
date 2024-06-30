@@ -19,8 +19,9 @@ public class UsersService {
         return usersRepository.findAll();
     }
 
-    public Users save(Users user) {
-        Users  users = this.usersRepository.save(user);
+    public Users save(UserDto userDto) {
+
+        Users  users = this.usersRepository.save(UserMapper.dtoToUser(userDto));
         return users;
 
     }
