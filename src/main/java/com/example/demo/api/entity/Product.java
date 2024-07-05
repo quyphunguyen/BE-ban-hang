@@ -16,6 +16,9 @@ public class Product {
     @Column(name = "imgsrc")
     private String imgSrc;
 
+    @Column(name = "file_name")
+    private String fileName;
+
     @Column(name = "title")
     private String title;
 

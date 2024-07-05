@@ -9,6 +9,7 @@ import com.example.demo.api.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -18,13 +19,19 @@ public class ProductControler {
     private ProductService productService;
 
     @PostMapping(value = { "/product/save" })
-    public Product userSave(@RequestBody ProductDto request) {
+    public Product save(@RequestBody ProductDto request) {
         Product product = this.productService.save(request);
         return product;
     }
 
+    @PostMapping(value = { "/product/delete" })
+    public boolean delete(@RequestParam("id") String id) throws IOException {
+        boolean result = this.productService.delete(id);
+        return result;
+    }
+
     @GetMapping(value = { "/product/findAll" })
-    public List<ProductDto> getAllUsers() {
+    public List<ProductDto> findAll() {
         List<ProductDto> products = this.productService.findAll();
         return products;
     }
